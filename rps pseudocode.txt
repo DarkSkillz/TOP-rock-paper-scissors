@@ -1,0 +1,21 @@
+get system choice
+get the player choice
+
+possible situations:
+    #1 Tie = both choose the same
+    #2 Player wins (
+        player chose rock vs scissors
+        player chose paper vs rock
+        player chose scissors vs paper 
+    )
+    #3 Player looses by any other outcome
+
+create a function that check's the score before starting a new round, if any score is >= 3 declare the winner and end the game
+
+compare the two choices
+if both are the same
+    output a tie and start next round
+else if any of the player winning conditions are true
+    increment the player's score by 1, check the scores and start the next round
+else 
+    increment the system's score the 1, check the scores and start the next round
