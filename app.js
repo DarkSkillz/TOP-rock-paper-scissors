@@ -1,4 +1,9 @@
 const choices = ["rock", "paper", "scissors"];
+const playerWins = new Map([
+    ["rock", "scissors"],
+    ["paper","rock"],
+    ["scissors", "paper"],
+]);
 
 function getSystemChoice() {
     let randomNumber = Math.floor(Math.random() * choices.length);
@@ -19,6 +24,17 @@ function getPlayerChoice() {
     }
 }
 
+function compareChoices(systemChoice, playerChoice) {
+    if (systemChoice == playerChoice) {
+        console.log("It's a Tie!")
+    }
+    else if (playerWins.get(playerChoice) == systemChoice) {
+        console.log("You win!")
+    }
+    else {
+        console.log("You lose!")
+    }
+}
+
 // The gameplay loop
-getSystemChoice();
-getPlayerChoice();
+compareChoices(getSystemChoice(),getPlayerChoice())
