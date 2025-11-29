@@ -4,6 +4,9 @@ const playerWins = new Map([
     ["paper","rock"],
     ["scissors", "paper"],
 ]);
+let systemScore = 0;
+let playerScore = 0;
+let roundNumber = 0;
 
 function getSystemChoice() {
     let randomNumber = Math.floor(Math.random() * choices.length);
@@ -19,22 +22,50 @@ function getPlayerChoice() {
         getPlayerChoice();
     }
     else {
-        console.log(playerChoice); //! Debug Only
+        console.log("Player's Choice: " + playerChoice); //! Debug Only
         return playerChoice;
     }
 }
 
 function compareChoices(systemChoice, playerChoice) {
     if (systemChoice == playerChoice) {
-        console.log("It's a Tie!")
+        console.log("It's a Tie!");
+        console.log("Player's Score: " + playerScore); //! Debug Only
+        console.log("System's Score: " + systemScore); //! Debug Only
+        newRound();
     }
     else if (playerWins.get(playerChoice) == systemChoice) {
-        console.log("You win!")
+        console.log("You win!");
+        playerScore++;
+        console.log("Player's Score: " + playerScore); //! Debug Only
+        console.log("System's Score: " + systemScore); //! Debug Only
+        checkScores();
     }
     else {
-        console.log("You lose!")
+        console.log("You lose!");
+        systemScore++;
+        console.log("Player's Score: " + playerScore); //! Debug Only
+        console.log("System's Score: " + systemScore); //! Debug Only
+        checkScores();
     }
 }
 
-// The gameplay loop
-compareChoices(getSystemChoice(),getPlayerChoice())
+function checkScores() {
+    if (systemScore >= 3 ) {
+        console.log("The System wins the game!");
+    }
+    else if (playerScore >= 3 ) {
+        console.log("The Player wins the game!");
+    }
+    else {
+        newRound();
+    }
+}
+
+function newRound() {
+    roundNumber++;
+    console.log("Round " + roundNumber);
+    compareChoices(getSystemChoice(),getPlayerChoice());
+}
+
+newRound();
