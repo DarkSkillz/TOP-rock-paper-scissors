@@ -1,7 +1,9 @@
-get system choice
+have an array of choices ["rock", "paper", "scissors"]
+
+get system choice 
 get the player choice
 
-possible situations:
+possible situations (organized in a hashmap): 
     #1 Tie = both choose the same
     #2 Player wins (
         player chose rock vs scissors
