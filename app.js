@@ -16,14 +16,15 @@ function getSystemChoice() {
 }
 
 function getPlayerChoice() {
-    let promptedChoice = prompt("Choose one (Rock, Paper, Scissors)");
-    let playerChoice = promptedChoice.trim().toLowerCase();
-    if (!choices.includes(playerChoice)) {
-        getPlayerChoice();
-    }
-    else {
-        console.log("Player's Choice: " + playerChoice); //! Debug Only
-        return playerChoice;
+    let keepGoing = true
+    while (keepGoing) {
+        let promptedChoice = prompt("Choose one (Rock, Paper, Scissors)");
+        let playerChoice = promptedChoice.trim().toLowerCase();
+        if (choices.includes(playerChoice)) {
+            keepGoing = false
+            console.log("Player's Choice: " + playerChoice); //! Debug Only
+            return playerChoice;
+        }
     }
 }
 
