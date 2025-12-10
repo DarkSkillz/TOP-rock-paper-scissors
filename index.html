@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!--     <script src="app.js" defer></script> -->
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,38 @@
 </head>
 
 <body>
+    <section class="flex">
+        <h1>Round 1</h1>
+        <div class="option-container flex">
+            <button class="option toggle">Rock</button>
+            <button class="option toggle ">Paper</button>
+            <button class="option toggle">Scissors</button>
+        </div>
 
-    <script src="app.js"></script>
+        <h2 class="hidden win-display">You Win!</h2> <!-- Toggled when game over -->
+        <h2 class="hidden lose-display">You Lose!</h2> <!-- Toggled when game over -->
+        <button class="hidden">Play Again</button> <!-- Toggled when game over -->
+
+        <h2>Score</h2>
+        <div class="score-container flex">
+            <div class="player-score">
+                <p>Player</p>
+                <div class="player-score-point-container flex">
+                    <span class="player-score-point player-score-point-1"></span>
+                    <span class="player-score-point player-score-point-2"></span>
+                    <span class="player-score-point player-score-point-3"></span>
+                </div>
+            </div>
+            <div class="system-score">
+                <p>System</p>
+                <div class="system-score-point-container flex">
+                    <span class="system-score-point system-score-point-1"></span>
+                    <span class="system-score-point system-score-point-2"></span>
+                    <span class="system-score-point system-score-point-3"></span>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
