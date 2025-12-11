@@ -9,7 +9,7 @@
     <title>Rock Paper Scissors</title>
 </head>
 
-<body>
+<body class="flex">
     <section class="flex">
         <h1>Round 1</h1>
         <div class="option-container flex">
@@ -19,12 +19,12 @@
         </div>
 
         <h2 class="hidden win-display">You Win!</h2> <!-- Toggled when game over -->
-        <h2 class="hidden lose-display">You Lose!</h2> <!-- Toggled when game over -->
+        <h2 class="hidden loss-display">You Lose!</h2> <!-- Toggled when game over -->
         <button class="hidden">Play Again</button> <!-- Toggled when game over -->
 
-        <h2>Score</h2>
+        <h2 class="score-text">Score</h2>
         <div class="score-container flex">
-            <div class="player-score">
+            <div class="player-score flex">
                 <p>Player</p>
                 <div class="player-score-point-container flex">
                     <span class="player-score-point player-score-point-1"></span>
@@ -32,7 +32,7 @@
                     <span class="player-score-point player-score-point-3"></span>
                 </div>
             </div>
-            <div class="system-score">
+            <div class="system-score flex">
                 <p>System</p>
                 <div class="system-score-point-container flex">
                     <span class="system-score-point system-score-point-1"></span>
