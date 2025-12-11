@@ -84,6 +84,29 @@ h1 {
     display: 1;
 }
 
+/*  Toggled when game over  */
+
 .hidden {
     display: none;
+}
+
+.loss-display {
+    display: none;
+}
+
+.win-display {
+    display: none;
+}
+
+.win-display,
+.loss-display {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.play-again {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
 }
