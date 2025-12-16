@@ -16,8 +16,8 @@ function getSystemChoice() {
 }
 
 function getPlayerChoice() {
-    const button = document.querySelectorAll(".option")
-    button.forEach((btn) => btn.addEventListener("click", () => compareChoices(getSystemChoice(), btn.id)))
+    document.querySelectorAll(".option").forEach((btn) => btn.addEventListener("click", () => compareChoices(getSystemChoice(), btn.id)))
+    document.getElementById("play-again").addEventListener("click", playAgain)
 }
 
 function compareChoices(systemChoice, playerChoice) {
@@ -58,9 +58,11 @@ function compareChoices(systemChoice, playerChoice) {
 function checkScores() {
     if (systemScore >= 3 ) {
         console.log("The System wins the game!");
+        gameOver()
     }
     else if (playerScore >= 3 ) {
         console.log("The Player wins the game!");
+        gameOver()
     }
     else {
         newRound()
@@ -69,6 +71,27 @@ function checkScores() {
 
 function newRound() {
     roundNumber++;
+    document.getElementById("round-counter").innerText = "Round " + roundNumber
+}
+
+function gameOver() {
+    document.querySelectorAll(".toggle").forEach((element) => element.style.display = "none" )
+    document.querySelectorAll(".hidden").forEach((element) => element.style.display = "block" )
+    if (playerScore >= 3) {
+        document.getElementById("loss-display").style.display = "none"
+    }
+    else if (systemScore >= 3) {
+        document.getElementById("win-display").style.display = "none"
+    }
+}
+
+function playAgain() {
+    systemScore = 0
+    playerScore = 0
+    roundNumber = 1
+    document.querySelectorAll(".toggle").forEach((element) => element.style.display = "block" )
+    document.querySelectorAll(".hidden").forEach((element) => element.style.display = "none" )
+    document.querySelectorAll(".player-score-point, .system-score-point").forEach((element) => element.style.backgroundColor = "black")
     document.getElementById("round-counter").innerText = "Round " + roundNumber
 }
 

@@ -81,7 +81,7 @@ h1 {
 }
 
 .toggle {
-    display: 1;
+    display: block;
 }
 
 /*  Toggled when game over  */
@@ -90,21 +90,21 @@ h1 {
     display: none;
 }
 
-.loss-display {
+#loss-display {
     display: none;
 }
 
-.win-display {
+#win-display {
     display: none;
 }
 
-.win-display,
-.loss-display {
+#win-display,
+#loss-display {
     font-size: 40px;
     margin-bottom: 50px;
 }
 
-.play-again {
+#play-again {
     width: 150px;
     height: 50px;
     font-size: 20px;
