@@ -11,42 +11,46 @@ let roundNumber = 0;
 function getSystemChoice() {
     let randomNumber = Math.floor(Math.random() * choices.length);
     let systemChoice = choices[randomNumber];
-    //console.log("System's Choice: " + systemChoice); //! Debug Only
+    console.log("System's Choice: " + systemChoice); //! Debug Only
     return systemChoice;
 }
 
 function getPlayerChoice() {
-    let keepGoing = true
-    while (keepGoing) {
-        let promptedChoice = prompt("Choose one (Rock, Paper, Scissors)");
-        let playerChoice = promptedChoice.trim().toLowerCase();
-        if (choices.includes(playerChoice)) {
-            keepGoing = false
-            //console.log("Player's Choice: " + playerChoice); //! Debug Only
-            return playerChoice;
-        }
-    }
+    const button = document.querySelectorAll(".option")
+    button.forEach((btn) => btn.addEventListener("click", () => compareChoices(getSystemChoice(), btn.id)))
 }
 
 function compareChoices(systemChoice, playerChoice) {
     if (systemChoice == playerChoice) {
         console.log("It's a Tie!");
-        //console.log("Player's Score: " + playerScore); //! Debug Only
-        //console.log("System's Score: " + systemScore); //! Debug Only
-        newRound();
+        newRound()
     }
     else if (playerWins.get(playerChoice) == systemChoice) {
         console.log("You win!");
         playerScore++;
-        //console.log("Player's Score: " + playerScore); //! Debug Only
-        //console.log("System's Score: " + systemScore); //! Debug Only
+        if (playerScore == 1) {
+            document.getElementById("player-score-point-1").style.backgroundColor = "green"
+        }
+        else if (playerScore == 2) {
+            document.getElementById("player-score-point-2").style.backgroundColor = "green"
+        }
+        else if (playerScore == 3) {
+            document.getElementById("player-score-point-3").style.backgroundColor = "green"
+        }
         checkScores();
     }
     else {
         console.log("You lose!");
         systemScore++;
-        //console.log("Player's Score: " + playerScore); //! Debug Only
-        //console.log("System's Score: " + systemScore); //! Debug Only
+        if (systemScore == 1) {
+            document.getElementById("system-score-point-1").style.backgroundColor = "green"
+        }
+        else if (systemScore == 2) {
+            document.getElementById("system-score-point-2").style.backgroundColor = "green"
+        }
+        else if (systemScore == 3) {
+            document.getElementById("system-score-point-3").style.backgroundColor = "green"
+        }
         checkScores();
     }
 }
@@ -59,14 +63,14 @@ function checkScores() {
         console.log("The Player wins the game!");
     }
     else {
-        newRound();
+        newRound()
     }
 }
 
 function newRound() {
     roundNumber++;
-    console.log("Round " + roundNumber);
-    compareChoices(getSystemChoice(),getPlayerChoice());
+    document.getElementById("round-counter").innerText = "Round " + roundNumber
 }
 
-newRound();
+newRound()
+getPlayerChoice()
